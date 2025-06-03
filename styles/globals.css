@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sakura petal animation */
+.sakura-petal {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 0;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotateZ(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotateZ(360deg);
+    opacity: 0.2;
+  }
+}
