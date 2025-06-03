@@ -108,4 +108,31 @@ EMAIL_FROM=your_email@example.com
 - Theme previews shown for selection.
 - Global state management for theme application.
 
+# AnimePlatform
+
+A full-stack anime platform featuring a marketplace, forum, and streaming player.
+
+## Features
+
+- Anime, Manga, and Manhwa catalog
+- User authentication with NextAuth.js
+- Marketplace with payment support via Stripe and Web3 wallets
+- Forum for discussions
+- Theme system with multiple visual themes
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (>= 14.x)
+- npm or yarn
+- A database (e.g., PostgreSQL, MySQL, SQLite)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Serenawaifu/symmetrical-garbanzo
+   cd symmetrical-garbanzo
 
