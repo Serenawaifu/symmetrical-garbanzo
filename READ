@@ -45,4 +45,16 @@ EMAIL_FROM=your_email@example.com
 - Smooth scroll with drag or arrow buttons.
 - Click to open detailed page.
 
+## Streaming Player
+
+- Custom video player with play/pause, volume control, quality toggle, and fullscreen.
+- Episode selection dropdown or sidebar.
+- Comments section for user interaction.
+- 403 bypass placeholder for proxying public links.
+
+### Features
+
+- Supports M3U8 and MP4 streaming links.
+- Displays anime title and episode information.
+
 
