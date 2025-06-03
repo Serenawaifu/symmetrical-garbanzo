@@ -1,77 +1,34 @@
-// app/components/VideoPlayer.tsx
+// app/stream/[id]/page.tsx
 
-import React, { useState, useRef } from 'react';
-import ReactPlayer from 'react-player';
+import { useRouter } from 'next/router';
+import VideoPlayer from '../../components/VideoPlayer';
 
-interface VideoPlayerProps {
-  url: string;
-  title: string;
-  episodes: { id: string; title: string; url: string }[];
-}
+const episodes = [
+  { id: '1', title: 'Episode 1', url: 'https://example.com/episode1.m3u8' },
+  { id: '2', title: 'Episode 2', url: 'https://example.com/episode2.m3u8' },
+  // Add more episodes...
+];
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ url, title, episodes }) => {
-  const [playing, setPlaying] = useState(false);
-  const [volume, setVolume] = useState(1);
-  const [quality, setQuality] = useState('720p');
-  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]);
-  const playerRef = useRef<ReactPlayer>(null);
+export default function StreamPage() {
+  const router = useRouter();
+  const { id } = router.query;
 
-  const handleQualityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setQuality(e.target.value);
-    // Logic to change the video URL based on quality can be added here
-  };
-
-  const handleEpisodeChange = (episode: { id: string; title: string; url: string }) => {
-    setSelectedEpisode(episode);
+  // Fetch anime details based on ID (you can replace this with actual data fetching)
+  const animeDetails = {
+    title: 'Attack on Titan',
+    description: 'A story about humanity fighting against giant humanoid creatures.',
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      <ReactPlayer
-        ref={playerRef}
-        url={selectedEpisode.url}
-        playing={playing}
-        controls
-        volume={volume}
-        width="100%"
-        height="500px"
-        onPause={() => setPlaying(false)}
-        onPlay={() => setPlaying(true)}
-      />
-      <div className="flex justify-between items-center w-full mt-4">
-        <div>
-          <label htmlFor="quality" className="mr-2">Quality:</label>
-          <select id="quality" value={quality} onChange={handleQualityChange}>
-            <option value="720p">720p</option>
-            <option value="1080p">1080p</option>
-            <option value="480p">480p</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="volume" className="mr-2">Volume:</label>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={volume}
-            onChange={(e) => setVolume(parseFloat(e.target.value))}
-          />
-        </div>
-      </div>
-      <div className="mt-4">
-        <h2 className="text-xl font-semibold">Episodes</h2>
-        <ul className="list-disc pl-5">
-          {episodes.map((episode) => (
-            <li key={episode.id} className="cursor-pointer" onClick={() => handleEpisodeChange(episode)}>
-              {episode.title}
-            </li>
-          ))}
-        </ul>
+    <div className="px-6 py-12">
+      <h1 className="text-4xl font-bold mb-4">{animeDetails.title}</h1>
+      <VideoPlayer url={episodes[0].url} title={animeDetails.title} episodes={episodes} />
+      <div className="mt-6">
+        <h2 className="text-2xl mb-2">Comments</h2>
+        {/* Comments section can be implemented here */}
+        <textarea placeholder="Leave a comment..." className="w-full p-2 border border-gray-300 rounded" rows={4} />
+        <button className="mt-2 p-2 bg-blue-500 text-white rounded">Submit Comment</button>
       </div>
     </div>
   );
-};
-
-export default VideoPlayer;
+}
