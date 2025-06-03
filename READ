@@ -91,4 +91,21 @@ EMAIL_FROM=your_email@example.com
 - Users can view and purchase products.
 - Admins can add, delete, and manage products.
 
+## Theme System
+
+- Five visual themes:
+  - Retro Pixel
+  - Sakura Blossom
+  - Cyberpunk Neon
+  - Minimal Light
+  - Cozy Cafe
+- Each theme includes:
+  - Layout changes
+  - Typography styles
+  - Card structure and animations
+  - Color palettes
+- Theme switcher panel in the hamburger menu.
+- Theme previews shown for selection.
+- Global state management for theme application.
+
 
