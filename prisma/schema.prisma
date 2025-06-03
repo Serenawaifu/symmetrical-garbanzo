@@ -36,3 +36,12 @@ model Session {
   userId      String
   expires      DateTime
 }
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  owner       String
+  createdAt   DateTime @default(now())
+}
