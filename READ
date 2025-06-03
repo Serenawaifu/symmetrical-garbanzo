@@ -57,4 +57,17 @@ EMAIL_FROM=your_email@example.com
 - Supports M3U8 and MP4 streaming links.
 - Displays anime title and episode information.
 
+## Forum
+
+- Reddit-style forum for anime discussion.
+- Rich text editor for new posts using `react-quill`.
+- Users can upvote/downvote, reply, and edit/delete their posts.
+- Categories for discussions (e.g., Anime Talk, Manga News, Fan Art, Help).
+- Real-time updates using SWR.
+- Infinite scroll or pagination for posts.
+
+### Features
+
+- Only logged-in users can post or comment.
+
 
