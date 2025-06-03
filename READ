@@ -33,3 +33,16 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
 EMAIL_SERVER=smtp://user:pass@smtp.example.com:587
 EMAIL_FROM=your_email@example.com
 
+## Anime & Manga Catalog
+
+- Horizontally scrollable image gallery for Anime, Manga, and Manhwa.
+- Responsive, multi-row carousel using `react-slick`.
+- Users can rate and comment on items (only logged-in users).
+- Detailed pages for each item with descriptions and images.
+
+### Features
+
+- Smooth scroll with drag or arrow buttons.
+- Click to open detailed page.
+
+
