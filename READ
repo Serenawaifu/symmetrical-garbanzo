@@ -1,0 +1,17 @@
+# AnimePlatform
+
+A full-stack anime platform inspired by azuki.com, hianime.to, and myanimelist.net.
+
+- Next.js 14 (App Router)
+- Tailwind CSS
+- TypeScript
+- Dark/Light mode + 5 theme engine (placeholder)
+- Falling sakura background
+- Custom logo
+- Homepage with Anime, Manga, Manhwa, Marketplace sections
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
