@@ -1,6 +1,6 @@
 import './globals.css';
 import { ReactNode } from 'react';
-import ThemeProvider from './components/ThemeProvider';
+import { ThemeProvider } from '../context/ThemeContext';
 import Header from './components/Header';
 
 export const metadata = {
