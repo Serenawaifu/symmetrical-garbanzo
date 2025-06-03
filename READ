@@ -70,4 +70,25 @@ EMAIL_FROM=your_email@example.com
 
 - Only logged-in users can post or comment.
 
+## Marketplace
+
+- Owner-only listings for products.
+- Products shown in USD.
+- Payment support via:
+  - Stripe (Card)
+  - Web3 wallets (Crypto payments)
+  - UPI (India) via Razorpay or equivalent
+- Checkout flow with:
+  - Product page
+  - Quantity selection
+  - Address panel with user info
+  - Payment selection
+  - Order success screen
+- Admin panel for managing products and orders.
+
+### Features
+
+- Users can view and purchase products.
+- Admins can add, delete, and manage products.
+
 
