@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
 import SearchBar from './SearchBar';
+import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Header() {
   return (
@@ -13,12 +14,14 @@ export default function Header() {
         <a href="#anime" className="hover:text-pink-500 transition">Anime</a>
         <a href="#manga" className="hover:text-pink-500 transition">Manga</a>
         <a href="#manhwa" className="hover:text-pink-500 transition">Manhwa</a>
+        <a href="/catalog" className="hover:text-pink-500 transition">Catalog</a>
         <a href="#marketplace" className="hover:text-pink-500 transition">Marketplace</a>
       </nav>
       <div className="flex items-center gap-4">
         <SearchBar />
         <ThemeToggle />
       </div>
+      <ThemeSwitcher />
     </header>
   );
 }
