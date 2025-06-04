@@ -14,39 +14,25 @@ export default function ThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="flex items-center gap-2">
-      <button
-        aria-label="Light mode"
-        className={`p-2 rounded ${theme === 'light' ? 'bg-gray-200' : ''}`}
-        onClick={() => setTheme('light')}
-      >
-        <Sun size={18} />
+    <div className="relative">
+      <button className="p-2" onClick={() => setTheme('light')}>
+        <Sun />
       </button>
-      <button
-        aria-label="Dark mode"
-        className={`p-2 rounded ${theme === 'dark' ? 'bg-gray-700' : ''}`}
-        onClick={() => setTheme('dark')}
-      >
-        <Moon size={18} />
+      <button className="p-2" onClick={() => setTheme('dark')}>
+        <Moon />
       </button>
-      <div className="relative group">
-        <button
-          aria-label="More themes"
-          className="p-2 rounded"
-        >
-          <Palette size={18} />
-        </button>
-        <div className="absolute left-0 mt-2 bg-white dark:bg-gray-800 rounded shadow-lg p-2 hidden group-hover:block z-50">
-          {themes.slice(2).map((t) => (
-            <button
-              key={t}
-              className={`block px-3 py-1 rounded text-sm w-full text-left ${theme === t ? 'bg-gray-200 dark:bg-gray-700' : ''}`}
-              onClick={() => setTheme(t)}
-            >
-              {t.charAt(0).toUpperCase() + t.slice(1)}
-            </button>
-          ))}
-        </div>
+      <div className="absolute mt-2 bg-white dark:bg-gray-800 border rounded shadow">
+        {themes.slice(2).map((t) => (
+          <button
+            key={t}
+            className={`block px-3 py-1 w-full text-left ${
+              theme === t ? 'bg-gray-200 dark:bg-gray-700' : ''
+            }`}
+            onClick={() => setTheme(t)}
+          >
+            {t.charAt(0).toUpperCase() + t.slice(1)}
+          </button>
+        ))}
       </div>
     </div>
   );
