@@ -1,5 +1,4 @@
 // app/api/auth/[...nextauth]/route.ts
-
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import EmailProvider from 'next-auth/providers/email';
@@ -29,17 +28,16 @@ export const authOptions = {
     signIn: '/auth/signin',
   },
   callbacks: {
-    async signIn({ user, account, profile }) {
-      // Rate limiting for sign-in attempts
+    async signIn({ user }) {
       try {
-        await rateLimiter.consume(user.email);
+        await rateLimiter.consume(user.email ?? 'unknown');
         return true;
       } catch {
-        return false; // Block sign-in if rate limit exceeded
+        return false; // Block if rate limit exceeded
       }
     },
     async session({ session, user }) {
-      session.user.id = user.id; // Add user ID to session
+      session.user.id = user.id;
       return session;
     },
   },
