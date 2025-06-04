@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 const PETAL_COUNT = 20;
 
 export default function SakuraBackground() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -23,11 +23,5 @@ export default function SakuraBackground() {
     }
   }, []);
 
-  return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      aria-hidden="true"
-    />
-  );
+  return <div ref={containerRef} className="fixed inset-0 z-0 pointer-events-none" />;
 }
