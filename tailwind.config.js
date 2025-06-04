@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Placeholder for 5 themes, see ThemeProvider.tsx
+      // Extend here for sakura, neon, etc. custom themes
     },
   },
   plugins: [],
