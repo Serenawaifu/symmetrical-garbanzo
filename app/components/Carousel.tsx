@@ -1,9 +1,10 @@
-// app/components/Carousel.tsx
+'use client';
 
 import React from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface Item {
   id: string;
@@ -18,6 +19,7 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const settings = {
     dots: true,
@@ -26,46 +28,29 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 600, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
     <Slider {...settings}>
       {items.map((item) => (
-        <div key={item.id} className="relative group">
+        <div
+          key={item.id}
+          className="p-2 cursor-pointer"
+          onClick={() => router.push(`/details/${item.id}`)}
+        >
           <Image
             src={item.imageUrl}
             alt={item.title}
             width={300}
             height={450}
-            className="rounded-lg transition-transform duration-300 transform group-hover:scale-105"
-            onClick={() => {
-              // Navigate to detailed page
-              window.location.href = `/details/${item.id}`;
-            }}
+            className="rounded hover:scale-105 transition"
           />
-          <div className="absolute bottom-0 left-0 right-0 p-2 bg-black bg-opacity-50 text-white text-center rounded-b-lg">
-            {item.title}
-          </div>
+          <h3 className="text-center mt-2">{item.title}</h3>
           {session && (
-            <div className="absolute top-2 right-2">
-              <button className="bg-blue-500 text-white rounded p-1">Rate</button>
-              <button className="bg-green-500 text-white rounded p-1 ml-2">Comment</button>
-            </div>
+            <div className="text-center text-xs text-green-500">Rate & Comment available</div>
           )}
         </div>
       ))}
